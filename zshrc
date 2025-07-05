@@ -33,7 +33,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# Automatically start tmux
-if [[ -z "$TMUX" && -z "$SSH_CONNECTION" && -t 1 ]]; then
-  tmux new-session -A -s main
+# Automatically start tmux if not already inside it
+if [ -z "$TMUX" ] && [ -z "$SSH_CONNECTION" ] && [ -t 1 ]; then
+  tmux attach-session -t main || tmux new-session -s main
 fi

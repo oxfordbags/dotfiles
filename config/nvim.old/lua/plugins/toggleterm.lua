@@ -10,7 +10,7 @@ return {
       mode = { "n", "v", "i", "t" },
     },
     {
-      "<A-h>",
+      "<A-c>",
       "<cmd>ToggleTerm size=15 direction=horizontal<cr>",
       desc = "Toggle horizontal terminal",
       mode = { "n", "v", "i", "t" },
