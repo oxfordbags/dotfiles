@@ -1,4 +1,4 @@
-theme = catppuccin-mocha
+theme = catppuccin-mocha.conf
 macos-icon = holographic
 font-family = "Cascadia Mono NF"
 font-size = 15
