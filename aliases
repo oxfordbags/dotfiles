@@ -23,7 +23,7 @@ alias sr='source ~/.zshrc'
 alias sw='cd ~/Developer/swiim'
 alias t='tmux'
 alias ta='tmux attach'
-alias tm="printf '\e[3J' && log show --predicate 'subsystem == \"com.apple.TimeMachine\"' --info --last 6h | grep -F 'eMac' | grep -Fv 'etat' | awk -F']' '{print substr($0,1,19), $NF}'"
+alias tm="printf '\e[3J' && log show --predicate 'subsystem == \"com.apple.TimeMachine\"' --info --last 6h | grep -F 'eMac' | grep -Fv 'etat' | awk -F']' '{print substr(\$0,1,19), \$NF}'"
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
