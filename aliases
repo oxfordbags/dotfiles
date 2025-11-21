@@ -1,5 +1,6 @@
 alias aliases="vim ~/.aliases"
 alias alac="vim ~/.config/alacritty/alacritty.toml"
+alias b='docker exec -it beets bash'
 alias c='open -a Console'
 alias caf='caffeinate -d'
 alias d='cd ~/Developer && ls'
