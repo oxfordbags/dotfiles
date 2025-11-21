@@ -12,6 +12,7 @@ alias ds='cd ~/Developer/disida'
 alias g='git'
 alias gcm='git commit -m'
 alias gl="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'"
+alias ip="curl ifconfig.me"
 alias lg='lazygit'
 alias notes='cd /Users/chris/Library/Mobile\ Documents/com~apple~CloudDocs/Bear'
 alias ob='tail ~/obsyncian/obsyncian.log'
@@ -23,7 +24,6 @@ alias sr='source ~/.zshrc'
 alias sw='cd ~/Developer/swiim'
 alias t='tmux'
 alias ta='tmux attach'
-alias tm="printf '\e[3J' && log show --predicate 'subsystem == \"com.apple.TimeMachine\"' --info --last 6h | grep -F 'eMac' | grep -Fv 'etat' | awk -F']' '{print substr(\$0,1,19), \$NF}'"
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'

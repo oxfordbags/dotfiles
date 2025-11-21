@@ -25,6 +25,28 @@ export XDG_CONFIG_HOME=$HOME/.config
 # Prompt fallback if p10k not installed
 PROMPT="%F{0}%m %F{13}%1~ %F{7}$ %f"
 
+# a function to view time machine logs
+tm() {
+  printf '\e[3J'  # clear scrollback
+
+  local pred='subsystem == "com.apple.TimeMachine"'
+
+  # Show recent history (last 6h), format, then last 10 lines
+  log show --style syslog --predicate "$pred" --info --last 6h \
+    | grep -F 'eMac' \
+    | grep -Fv 'etat' \
+    | awk -F']' '{print substr($0,1,19), $NF}' \
+    | tail -n 10
+
+  echo "— following — (Ctrl-C to exit)"
+
+  # Follow new entries live
+  log stream --style syslog --predicate "$pred" --level info \
+    | grep -F 'eMac' \
+    | grep -Fv 'etat' \
+    | awk -F']' '{print substr($0,1,19), $NF}'
+}
+
 # Automatically start tmux if not already inside it
 if [ -z "$TMUX" ] && [ -z "$SSH_CONNECTION" ] && [ -t 1 ]; then
   tmux attach-session -t main || tmux new-session -s main
