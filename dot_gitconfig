@@ -1,0 +1,15 @@
+[user]
+	name = Chris Lawrence
+	email = chrismlawrence89@gmail.com
+[alias]
+  ci = commit
+  co = checkout
+  aa = add --all
+  b = branch
+  l = log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'
+  r = !git l -30
+  ra = !git r --all
+[core]
+	excludesfile = ~/.gitignore
+[push]
+	default = simple

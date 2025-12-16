@@ -1,0 +1,40 @@
+alias aliases="vim ~/.aliases"
+alias alac="vim ~/.config/alacritty/alacritty.toml"
+alias b='docker exec -it beets bash'
+alias c='open -a Console'
+alias caf='caffeinate -d'
+alias d='cd ~/Developer && ls'
+alias db='cd ~/Developer/diabase && ls'
+alias df='cd ~/.dotfiles'
+alias doc='cd ~/docker'
+alias docc='cd ~/docker && vim compose.yml'
+alias dod='docker compose up -d'
+alias ds='cd ~/Developer/disida'
+alias g='git'
+alias gcm='git commit -m'
+alias gl="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'"
+alias ip="curl ifconfig.me"
+alias lg='lazygit'
+alias notes='cd /Users/chris/Library/Mobile\ Documents/com~apple~CloudDocs/Bear'
+alias ob='tail ~/obsyncian/obsyncian.log'
+alias r='rails'
+alias rc='vim ~/.zshrc'
+alias rr='docker exec recyclarr recyclarr'
+alias s='ssh chris@sobotka'
+alias sr='source ~/.zshrc'
+alias sw='cd ~/Developer/swiim'
+alias t='tmux'
+alias ta='tmux attach'
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
+alias vps='ssh chris@170.64.236.247'
+alias yt="yt-dlp -x --audio-format wav"
+
+# Convert FLAC
+alias flacc='for i in *.flac;do ffmpeg -i "$i" -ab 320k "${i%.*}.mp3";done'
+alias aflacc='for i in *.flac; do ffmpeg -i "$i" -acodec alac "${i%.*}.m4a";done'
+
+# Update Docker Containers with Watchtower
+alias dup="curl -H 'Authorization: Bearer balegdeh' sobotka:9898/v1/update"
+

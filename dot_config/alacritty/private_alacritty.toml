@@ -1,0 +1,29 @@
+
+[window]
+option_as_alt = "Both"
+blur = true
+dynamic_padding = true
+
+[window.dimensions]
+columns = 168
+lines = 51
+
+[font]
+size = 15
+
+[font.normal]
+family = "Liga SFMono Nerd Font"
+style = "Light"
+
+[font.bold]
+style = "SemiBold"
+
+
+[keyboard]
+bindings = [{key = "Return", mods = "Alt", action = "ToggleFullScreen" }]
+
+[general]
+import = ["~/.config/alacritty/themes/tokyonight_moon.toml"]
+
+[env]
+TERM="xterm-256color"
