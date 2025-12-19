@@ -48,7 +48,7 @@ tm() {
 }
 
 # Automatically start tmux if not already inside it
-if [ -z "$TMUX" ] && [ -z "$SSH_CONNECTION" ] && [ -t 1 ] && ["$HOSTNAME" = "Rawls.local"]; then
+if [ -z "$TMUX" ] && [ -z "$SSH_CONNECTION" ] && [ -t 1 ] && [ "$HOST" = "rawls.local" ]; then
   tmux attach-session -t main || tmux new-session -s main
 fi
 
