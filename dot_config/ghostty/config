@@ -1,6 +1,6 @@
 theme = catppuccin-mocha.conf
 macos-icon = holographic
-font-family = "Cascadia Mono NF"
+# font-family = "Cascadia Mono NF"
 font-size = 15
 macos-option-as-alt = true
 confirm-close-surface = false
