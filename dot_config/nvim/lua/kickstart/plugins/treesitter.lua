@@ -21,6 +21,8 @@ return {
 			"ruby",
 			"css",
 			"javascript",
+			"toml",
+			"yaml",
 		}
 		require("nvim-treesitter").install(ensure_installed)
 	end,
