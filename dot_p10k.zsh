@@ -109,6 +109,24 @@
     # example               # example user-defined segment (see prompt_example function below)
   )
 
+# ---- iOS (Prompt.app) overrides ----
+if [[ "$TERM_PROGRAM" == "Prompt" ]]; then
+  # Keep left prompt lean
+  typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
+    dir
+    vcs
+  )
+
+  # Disable right prompt entirely on iOS
+  typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+
+  # Be much more aggressive about shortening paths
+  typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_middle
+  typeset -g POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+  typeset -g POWERLEVEL9K_DIR_MAX_LENGTH=30
+  typeset -g POWERLEVEL9K_DIR_MIN_COMMAND_COLUMNS=20
+fi
+
   # Defines character set used by powerlevel10k. It's best to let `p10k configure` set it for you.
   typeset -g POWERLEVEL9K_MODE=nerdfont-complete
   # When set to `moderate`, some icons will have an extra space after them. This is meant to avoid
