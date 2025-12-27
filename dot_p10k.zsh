@@ -109,7 +109,7 @@
     # example               # example user-defined segment (see prompt_example function below)
   )
 
-# ---- iOS (Prompt.app) overrides ----
+  # ---- iOS (Prompt.app) overrides ----
 if [[ "$TERM_PROGRAM" == "Prompt" ]]; then
   # Keep left prompt lean
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
