@@ -3,12 +3,11 @@
 palette = "catppuccin_mocha"
 
 format = """
+$os\
+$hostname\
 $directory\
 $git_branch\
 $git_status\
-$fill\
-$os\
-$hostname\
 $line_break\
 $character\
 """
@@ -49,7 +48,11 @@ format = '[$symbol]($style)'
 ssh_only = false
 ssh_symbol = " "
 style = 'fg:overlay0'
-format = '[ ($ssh_symbol )$hostname ]($style)'
+format = '[($ssh_symbol )$hostname]($style)'
+
+[character]
+success_symbol = '[➜](bold green) '
+error_symbol = '[✗](bold red) '
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
