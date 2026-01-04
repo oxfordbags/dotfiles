@@ -44,4 +44,3 @@ fi
 
 eval "$(/opt/homebrew/bin/mise activate zsh)"
 eval "$(starship init zsh)"
-

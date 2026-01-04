@@ -19,6 +19,8 @@ alias ob='tail ~/obsyncian/obsyncian.log'
 alias r='rails'
 alias rc='vim ~/.zshrc'
 alias rr='docker exec recyclarr recyclarr'
+alias ripalbum='rip search deezer album'
+alias ripartist='rip search deezer artist'
 alias s='ssh chris@sobotka'
 alias sr='source ~/.zshrc'
 alias sw='cd ~/Developer/swiim'
@@ -37,3 +39,7 @@ alias aflacc='for i in *.flac; do ffmpeg -i "$i" -acodec alac "${i%.*}.m4a";done
 # Update Docker Containers with Watchtower
 alias dup="curl -H 'Authorization: Bearer balegdeh' sobotka:9898/v1/update"
 
+#Alias the beet command
+beet() {
+    docker exec -it beets beet "$@"
+}
