@@ -49,6 +49,9 @@ eval "$(/opt/homebrew/bin/mise activate zsh)"
 {{- end }}
 
 {{- if eq .chezmoi.os "linux" }}
+alias v='nvim -u ~/.config/nvim-minimal/init.lua'
+alias vim='nvim -u ~/.config/nvim-minimal/init.lua'
+alias nvim='nvim -u ~/.config/nvim-minimal/init.lua'
 eval "$(~/.local/bin/mise activate zsh)"
 {{- end }}
 
