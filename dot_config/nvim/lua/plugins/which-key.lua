@@ -4,8 +4,6 @@ return {
 		event = "VimEnter", -- Sets the loading event to 'VimEnter'
 		opts = {
 			preset = "helix",
-			-- delay between pressing a key and opening which-key (milliseconds)
-			-- this setting is independent of vim.o.timeoutlen
 			delay = 0,
 			icons = {
 				-- set icon mappings to true if you have a Nerd Font
