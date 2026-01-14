@@ -46,6 +46,7 @@ fi
 
 {{- if eq .chezmoi.os "darwin" }}
 eval "$(/opt/homebrew/bin/mise activate zsh)"
+export HOMEBREW_NO_ENV_HINTS=1
 {{- end }}
 
 {{- if eq .chezmoi.os "linux" }}

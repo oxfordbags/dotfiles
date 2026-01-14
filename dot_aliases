@@ -40,7 +40,34 @@ alias aflacc='for i in *.flac; do ffmpeg -i "$i" -acodec alac "${i%.*}.m4a";done
 # Update Docker Containers with Watchtower
 alias dup="curl -H 'Authorization: Bearer balegdeh' sobotka:9898/v1/update"
 
-#Alias the beet command
-beet() {
-    docker exec -it beets beet "$@"
+# Beet Importer 
+
+# Beet importer helper
+beet-importer() {
+    case "$1" in
+        restart)
+            echo "Stopping beet importer..."
+            launchctl unload ~/Library/LaunchAgents/com.oxfordbags.beet-importer.plist
+            echo "Starting beet importer..."
+            launchctl load ~/Library/LaunchAgents/com.oxfordbags.beet-importer.plist
+            echo "Beet importer restarted."
+            ;;
+        logs)
+            # Optionally follow logs
+            if [[ "$2" == "-f" || "$2" == "--follow" ]]; then
+                tail -f ~/Library/Logs/beet-importer.log \
+                    ~/Library/Logs/beet-importer.stdout.log \
+                    ~/Library/Logs/beet-importer.stderr.log
+            else
+                cat ~/Library/Logs/beet-importer.log \
+                    ~/Library/Logs/beet-importer.stdout.log \
+                    ~/Library/Logs/beet-importer.stderr.log
+            fi
+            ;;
+        *)
+            echo "Usage: beet-importer {restart|logs [-f|--follow]}"
+            ;;
+    esac
 }
+hash -d blib=/Volumes/omar/media/music/beets/
+hash -d dl=/Volumes/omar/downloads/
