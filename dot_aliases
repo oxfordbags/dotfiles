@@ -15,7 +15,7 @@ alias gl="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen
 alias ip="curl ifconfig.me"
 alias lg='lazygit'
 alias notes='cd /Users/chris/Library/Mobile\ Documents/com~apple~CloudDocs/Bear'
-alias ob='tail ~/obsyncian/obsyncian.log'
+alias ob='tail ~/util/obsyncian/obsyncian.log'
 alias r='rails'
 alias rc='vim ~/.zshrc'
 alias rr='docker exec recyclarr recyclarr'
