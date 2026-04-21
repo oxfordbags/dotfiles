@@ -72,3 +72,4 @@ beet-importer() {
 }
 hash -d blib=/Volumes/omar/media/music/beets/
 hash -d dl=/Volumes/omar/downloads/
+hash -d research=/Users/chris/Library/CloudStorage/OneDrive-NSWHealthDepartment/Obsidian/Research
