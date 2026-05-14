@@ -38,9 +38,18 @@ tm() {
 }
 
 {{- if eq .chezmoi.hostname "rawls" }}
-# Automatically start tmux if not already inside it
+# Automatically start tmux if not already inside it, with a persistent layout:
+#   pane 0  — rawls (local shell)
+#   pane 1  — sobotka (autossh keeps the connection alive and reconnects on drop)
 if [ -z "$TMUX" ] && [ -z "$SSH_CONNECTION" ] && [ -t 1 ] ; then
-  tmux attach-session -t main || tmux new-session -s main
+  if ! tmux attach-session -t main 2>/dev/null; then
+    tmux new-session -s main -n "rawls" -d
+    tmux new-window -t main -n "sobotka"
+    tmux send-keys -t "main:sobotka" 'autossh -M 0 -o "ServerAliveInterval 10" -o "ServerAliveCountMax 3" sobotka' Enter
+    tmux send-keys -t "main:sobotka" 'clear' Enter
+    tmux select-window -t "main:rawls"
+    tmux attach-session -t main
+  fi
 fi
 {{- end }}
 
