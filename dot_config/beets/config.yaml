@@ -1,0 +1,77 @@
+plugins: fetchart chroma scrub lastgenre importadded inline edit musicbrainz mbsync lyrics detypo
+pluginpath: ~/.config/beets/beetsplug
+directory: /Volumes/omar/media/music/beets
+library: /Users/chris/.config/beets/library.blb
+threaded: yes
+original_date: yes
+per_disc_numbering: yes
+
+paths: #requires inline plugin
+  default: $albumartist/$album ($original_year)/$disc_and_track $title
+  singleton: Non-Album/$artist - $title
+  comp: Compilations/$album%aunique{}/$disc_and_track - $title
+  albumtype_soundtrack: Soundtracks/$album/$disc_and_track $title
+
+import:
+  write: yes
+  move: yes # change to no if reimporting from original library
+  resume: yes
+  incremental: yes
+  incremental_skip_later: yes
+  quiet_fallback: skip
+  timid: no
+  languages: en jp es
+  log: ~/.config/beets/beet.log
+
+lyrics:
+  keep_synced: yes
+  synced: yes
+  print: yes
+
+match:
+  strong_rec_thresh: 0.3
+  ignored: missing_tracks
+  preferred:
+    media: ["Digital Media|File", "CD"]
+    original_year: yes
+
+importadded:
+  preserve_mtimes: yes
+  preserve_write_mtimes: yes
+
+lastgenre:
+  auto: yes
+  force: yes
+  count: 3
+  canonical: yes
+  keep_existing: no
+  source: album
+
+fetchart:
+  cautious: true
+
+scrub:
+  auto: yes
+
+detypo:
+  fields: [title, album, artist, albumartist, artist_sort, albumartist_sort]
+
+replace:
+  '^\.': _
+  '[\x00-\x1f]': _
+  '[<>:"\?\*\|]': _
+  '[\xE8-\xEB]': e
+  '[\xEC-\xEF]': i
+  '[\xE2-\xE6]': a
+  '[\xF2-\xF6]': o
+  '[\xF8]': o
+  '\.$': _
+  '\s+$': ""
+
+web:
+  host: 0.0.0.0
+  port: 8337
+
+item_fields:
+  disc_and_track: u'%02i-%02i' % (disc, track) if
+    disctotal > 1 else u'%02i' % (track)
