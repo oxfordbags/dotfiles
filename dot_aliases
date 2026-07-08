@@ -73,3 +73,23 @@ beet-importer() {
 hash -d blib=/Volumes/omar/media/music/beets/
 hash -d dl=/Volumes/omar/downloads/
 hash -d research=/Users/chris/Library/CloudStorage/OneDrive-NSWHealthDepartment/Research
+
+mbid() {
+  emulate -L zsh
+  local results
+  results=$(beet ls -a -f '$albumartist - $album :: $mb_albumid' "$@")
+  [[ -z $results ]] && { print -u2 "mbid: no match"; return 1 }
+  print -r -- "$results"
+  # copy the ID to the clipboard only when the match is unambiguous
+  local -a lines=("${(@f)results}")
+  if (( ${#lines} == 1 )); then
+    local id="${results##* :: }"
+    if [[ -n $id ]]; then
+      print -rn -- "$id" | pbcopy
+      print -u2 "mbid: copied → $id"
+    else
+      print -u2 "mbid: album has no MusicBrainz ID"
+    fi
+  fi
+}
+
