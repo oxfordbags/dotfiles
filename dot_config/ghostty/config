@@ -1,4 +1,4 @@
-theme = catppuccin-latte.conf
+theme = light:catppuccin-latte.conf,dark:catppuccin-mocha.conf
 macos-icon = holographic
 font-family = "SFMono Nerd Font"
 font-size = 14
