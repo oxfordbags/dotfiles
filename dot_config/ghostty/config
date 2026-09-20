@@ -1,6 +1,6 @@
-theme = catppuccin-mocha.conf
+theme = catppuccin-latte.conf
 macos-icon = holographic
-font-family = "JetBrains Mono"
+font-family = "SFMono Nerd Font"
 font-size = 14
 macos-option-as-alt = true
 confirm-close-surface = false
