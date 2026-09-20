@@ -1,4 +1,4 @@
-plugins: fetchart chroma scrub lastgenre importadded inline edit musicbrainz mbsync lyrics detypo
+plugins: fetchart scrub lastgenre importadded inline edit musicbrainz mbsync lyrics detypo
 pluginpath: ~/.config/beets/beetsplug
 directory: /Volumes/omar/media/music/beets
 library: /Users/chris/.config/beets/library.blb
@@ -20,20 +20,33 @@ import:
   incremental_skip_later: yes
   quiet_fallback: skip
   timid: no
-  languages: en jp es
   log: ~/.config/beets/beet.log
 
 lyrics:
+  auto: no
   keep_synced: yes
   synced: yes
   print: yes
+  sources: [lrclib]
 
 match:
   strong_rec_thresh: 0.3
   ignored: missing_tracks
   preferred:
     media: ["Digital Media|File", "CD"]
-    original_year: yes
+  # The media preference is normalized against every per-track penalty, so at
+  # the default weight of 1.0 it's drowned out and vinyl/CD usually win. Bump
+  # the media weight so digital is actually preferred. Non-listed formats
+  # (vinyl, cassette, ...) get the max penalty, so this only pushes them down.
+  distance_weights:
+    media: 5.0
+
+musicbrainz:
+  # Default is 5: beets only scores the top 5 releases MusicBrainz returns
+  # (ranked by MB relevance, not beets distance), so digital releases for
+  # albums with many editions often never enter the candidate list. Raise it
+  # so the digital release is fetched and scored alongside the vinyl/CD ones.
+  search_limit: 15
 
 importadded:
   preserve_mtimes: yes
