@@ -70,9 +70,13 @@ beet-importer() {
             ;;
     esac
 }
+
+# Directory Shortcuts
+
 hash -d blib=/Volumes/omar/media/music/beets/
 hash -d dl=/Volumes/omar/downloads/
 hash -d research=/Users/chris/Library/CloudStorage/OneDrive-NSWHealthDepartment/Research
+hash -d od=/Users/chris/Library/CloudStorage/OneDrive-NSWHealthDepartment/
 
 mbid() {
   emulate -L zsh
